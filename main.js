@@ -71,7 +71,7 @@ Ball.prototype.update = function() {
 }
 Ball.prototype.collisionDetect = function() {
   for (var j = 0; j < balls.length; j++) {
-    if (!(this === balls[j])) {
+    if (!(this === balls[j]) && balls[j].exists === true) {
       var dx = this.x - balls[j].x;
       var dy = this.y - balls[j].y;
       var distance = Math.sqrt(dx * dx + dy * dy);
@@ -131,7 +131,7 @@ EvilCircle.prototype.setControls = function() {
 }
 EvilCircle.prototype.collisionDetect = function() {
   for (var j = 0; j < balls.length; j++) {
-    if(balls[j].exists == true) {
+    if(balls[j].exists === true) {
       var dx = this.x - balls[j].x;
       var dy = this.y - balls[j].y;
       var distance = Math.sqrt(dx * dx + dy * dy);
